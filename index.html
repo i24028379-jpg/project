@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <meta name="theme-color" content="#0b0b12">
+    <title>Kuromi · 3D Interactive Space</title>
+    
+    <!-- Favicon - 网站图标 -->
+    <link rel="icon" type="image/x-icon" href="favicon.ico">
+    <link rel="icon" type="image/png" sizes="32x32" href="favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="favicon-16x16.png">
+    <link rel="apple-touch-icon" sizes="180x180" href="apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="192x192" href="android-chrome-192x192.png">
+    <link rel="icon" type="image/png" sizes="512x512" href="android-chrome-512x512.png">
+    <link rel="manifest" href="site.webmanifest">
+    
+    <link rel="stylesheet" href="css/style.css">
+    <style>
+        /* Minimal overrides for the homepage only; keep global styles intact */
+        html,
+        body {
+            height: 100%;
+        }
+
+        body {
+            background-color: #0b0b12;
+            overflow: hidden;
+        }
+
+        #scene {
+            position: fixed;
+            inset: 0;
+            width: 100%;
+            height: 100%;
+            display: block;
+        }
+
+        .overlay {
+            position: fixed;
+            left: 0;
+            right: 0;
+            top: 0;
+            pointer-events: none;
+            padding: 24px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            color: #ffffff;
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, 'PingFang SC', 'Hiragino Sans GB', 'Microsoft YaHei', sans-serif;
+            text-shadow: 0 2px 12px rgba(0, 0, 0, 0.35);
+        }
+
+        .brand {
+            font-size: 18px;
+            letter-spacing: 1px;
+            opacity: .9;
+        }
+
+        .title {
+            font-size: 24px;
+            font-weight: 600;
+            opacity: .95;
+        }
+
+        .nav {
+            pointer-events: auto;
+        }
+
+        .nav a {
+            margin-left: 12px;
+            color: #e7dcff;
+            text-decoration: none;
+            font-size: 14px;
+            padding: 6px 10px;
+            background: rgba(156, 127, 247, 0.15);
+            border: 1px solid rgba(156, 127, 247, 0.35);
+            border-radius: 6px;
+        }
+
+        .nav a:hover {
+            background: rgba(156, 127, 247, 0.28);
+        }
+
+        .hint {
+            position: fixed;
+            left: 50%;
+            bottom: 24px;
+            transform: translateX(-50%);
+            color: #cfd3ff;
+            font-size: 12px;
+            letter-spacing: .3px;
+            opacity: .75;
+            pointer-events: none;
+            background: rgba(0, 0, 0, 0.25);
+            padding: 6px 10px;
+            border-radius: 999px;
+            border: 1px solid rgba(255, 255, 255, 0.12);
+        }
+    </style>
+    <script src="https://unpkg.com/three@0.159.0/build/three.min.js"></script>
+    <script src="js/main.js" defer></script>
+    <script src="js/effects.js" defer></script>
+
+    <!-- Preload frequently used images to reduce first-frame texture delay -->
+    <link rel="preload" as="image" href="images/y1.jpg">
+    <link rel="preload" as="image" href="images/y2.jpg">
+    <link rel="preload" as="image" href="images/k1.jpg">
+    <link rel="preload" as="image" href="images/k2.jpg">
+    <link rel="preload" as="image" href="images/k3.jpg">
+    <link rel="preload" as="image" href="images/k4.jpg">
+    <link rel="preload" as="image" href="images/mito6.png">
+    <link rel="preload" as="image" href="images/mito7.png">
+    <link rel="preload" as="image" href="images/mito4.png">
+    <link rel="preload" as="image" href="images/mito5.png">
+    <link rel="preload" as="image" href="images/mito8.png">
+    <link rel="preload" as="image" href="images/mito9.png">
+    <link rel="preload" as="image" href="images/z1.png">
+    <link rel="preload" as="image" href="images/z2.png">
+    <link rel="preload" as="image" href="images/z3.png">
+    <link rel="preload" as="image" href="images/title.jpeg">
+    <link rel="preload" as="image" href="images/banner5.png">
+    <link rel="preload" as="image" href="images/jianjie.jpg">
+</head>
+
+<body>
+    <canvas id="scene"></canvas>
+    <div class="overlay">
+        <div class="brand">Kuromi Space</div>
+        <div class="title">Kuromi · 3D Interactive</div>
+        <nav class="nav">
+            <a class="btn3d" style="--d:0s" href="index2.html">Overview</a>
+            <a class="btn3d" style="--d:.2s" href="index3.html">Characters</a>
+            <a class="btn3d" style="--d:.4s" href="index4.html">Gallery</a>
+        </nav>
+    </div>
+    <div class="hint">Move/drag to explore | Scroll to zoom | Touch drag/pinch</div>
+</body>
+
+</html>
